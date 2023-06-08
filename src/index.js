@@ -31,18 +31,16 @@ for (let i = 0; i < possibleKeys.length; i++) {
   let decoded = "";
   let spacers = 0;
   let invalidPhrase = false;
-  let isValid = false;
 
   for (let j = 0; j < CODED_STRING.length; j++) {
     if (CODED_STRING[j] == " ") {
-      if (!isValid && !dictionary.isValid(decoded.split(" ").pop())) {
+      if (!dictionary.isValid(decoded.split(" ").pop())) {
         invalidPhrase = true;
         break;
       }
 
       spacers++;
       decoded = decoded.concat(" ");
-      isValid = false;
     } else
       decoded = decoded.concat(
         getViginereDecodedItem(k[j - spacers], CODED_STRING[j])
