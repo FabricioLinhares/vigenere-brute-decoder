@@ -31,12 +31,11 @@ for (let i = 0; i < possibleKeys.length; i++) {
   );
   let decoded = "";
   let spacers = 0;
-  let invalidPhrase = false;
-
+  let validPhrase = true;
   for (let j = 0; j < ENCODED_STRING.length; j++) {
     if (ENCODED_STRING[j] == " ") {
       if (!dictionary.isValid(decoded.split(" ").pop())) {
-        invalidPhrase = true;
+        validPhrase = false;
         break;
       }
 
@@ -48,7 +47,8 @@ for (let i = 0; i < possibleKeys.length; i++) {
       );
   }
 
-  if (!invalidPhrase) console.log(decoded, possibleKeys[i], validPhrases++);
+  if (validPhrase && dictionary.isValid(decoded.split(" ").pop()))
+    console.log(decoded, "|", possibleKeys[i], validPhrases++);
 }
 
 console.log(validPhrases);

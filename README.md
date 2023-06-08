@@ -6,6 +6,7 @@ An vigenere brute force decoder. Its uses an word language list to identify the 
 
 - You have to rename the `.env.example` file to `.env`.
 - Config the env file whenever you want.
+  - You can generate an vigenere encoded string [manually](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher) or with [an encoder](https://www.cs.du.edu/~snarayan/crypt/vigenere.html).
 - Run `npm start`
 
 ## Dictionary
