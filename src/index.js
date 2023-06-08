@@ -1,7 +1,6 @@
 import dictionary from "./dictionary.js";
 
-const CODED_STRING =
-  "tu goc qpmd ltwwo setllvz s uiqvlqxo lm nscrd kppyc he vlp hpwkmchdf tske nsomvw";
+const CODED_STRING = "veoko rof ktqstqgirfxa tywq";
 
 const possibleKeys = dictionary.getWords().map((a) => a.toLowerCase());
 
