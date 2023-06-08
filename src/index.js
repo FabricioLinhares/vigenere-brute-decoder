@@ -1,11 +1,10 @@
+import dictionary from "./dictionary.js";
+
 const CODED_STRING = "qio qpbvmi fx bdla";
 const KEY_LENGTH = 6;
 
-import { Word, BRISPELL } from "@andsfonseca/palavras-pt-br";
-Word.library = BRISPELL;
-
-const allWords = Word.getAllWords(KEY_LENGTH, true, false, false, true);
-const possibleKeys = allWords
+const possibleKeys = dictionary
+  .getWords()
   .filter((a) => a.length == KEY_LENGTH)
   .map((a) => a.toLowerCase());
 
@@ -46,7 +45,7 @@ for (let i = 0; i < possibleKeys.length; i++) {
 
   for (let j = 0; j < CODED_STRING.length; j++) {
     if (CODED_STRING[j] == " ") {
-      if (!isValid && !Word.checkValid(decoded.split(" ").pop())) {
+      if (!isValid && !dictionary.isValid(decoded.split(" ").pop())) {
         invalidPhrase = true;
         break;
       }
@@ -79,7 +78,7 @@ console.log(validPhrases);
 //     .map((_, i) => getViginereDecodedItem(firstCoded[i], key[i]))
 //     .join("");
 
-//   if (Word.checkValid(result)) console.log(key, result);
+//   if (dictionary.isValid(result)) console.log(key, result);
 // });
 
 // const keys = [
@@ -805,4 +804,4 @@ console.log(validPhrases);
 //   console.log(decoded);
 // });
 
-// console.log(Word.checkValid("teste"));
+// console.log(dictionary.isValid("teste"));
