@@ -5,6 +5,7 @@ class Dictionary {
     try {
       const data = fs.readFileSync("src/assets/br-sem-acentos.txt", "utf8");
       this.words = data.split("\n");
+      this.words.pop();
     } catch (e) {
       console.log(e.message);
       this.words = [];
