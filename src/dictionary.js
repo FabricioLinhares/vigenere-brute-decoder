@@ -9,7 +9,7 @@ class Dictionary {
         process.env.DICTIONARY_FILE_ENCODING
       );
       this.words = data.split("\n");
-      this.words.pop();
+      this.words = this.words.filter((a) => a !== "");
     } catch (e) {
       console.log(e.message);
       this.words = [];
