@@ -3,7 +3,7 @@ import "dotenv/config";
 
 const ENCODED_STRING = process.env.ENCODED_STRING;
 
-const possibleKeys = dictionary.getWords().map((a) => a.toLowerCase());
+const possibleKeys = dictionary.getWords();
 
 const getViginereDecodedItem = (keyChar, letter) => {
   const aCode = "a".charCodeAt();

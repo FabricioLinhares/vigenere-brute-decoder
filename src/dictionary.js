@@ -10,6 +10,7 @@ class Dictionary {
       );
       this.words = data.split("\n");
       this.words = this.words.filter((a) => a !== "");
+      this.words = this.words.map((a) => a.toLowerCase());
     } catch (e) {
       console.log(e.message);
       this.words = [];
