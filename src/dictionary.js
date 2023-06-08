@@ -1,9 +1,13 @@
 import fs from "fs";
+import "dotenv/config";
 
 class Dictionary {
   constructor() {
     try {
-      const data = fs.readFileSync("src/assets/br-sem-acentos.txt", "utf8");
+      const data = fs.readFileSync(
+        process.env.DICTIONARY_FILE_PATH,
+        process.env.DICTIONARY_FILE_ENCODING
+      );
       this.words = data.split("\n");
       this.words.pop();
     } catch (e) {

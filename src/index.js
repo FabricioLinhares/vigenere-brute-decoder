@@ -1,6 +1,7 @@
 import dictionary from "./dictionary.js";
+import "dotenv/config";
 
-const CODED_STRING = "veoko rof ktqstqgirfxa tywq";
+const ENCODED_STRING = process.env.ENCODED_STRING;
 
 const possibleKeys = dictionary.getWords().map((a) => a.toLowerCase());
 
@@ -26,14 +27,14 @@ for (let i = 0; i < possibleKeys.length; i++) {
     console.log(`${i}/${possibleKeys.length}`);
 
   const k = possibleKeys[i].repeat(
-    (CODED_STRING.length / possibleKeys[i].length).toFixed() + 1
+    (ENCODED_STRING.length / possibleKeys[i].length).toFixed() + 1
   );
   let decoded = "";
   let spacers = 0;
   let invalidPhrase = false;
 
-  for (let j = 0; j < CODED_STRING.length; j++) {
-    if (CODED_STRING[j] == " ") {
+  for (let j = 0; j < ENCODED_STRING.length; j++) {
+    if (ENCODED_STRING[j] == " ") {
       if (!dictionary.isValid(decoded.split(" ").pop())) {
         invalidPhrase = true;
         break;
@@ -43,7 +44,7 @@ for (let i = 0; i < possibleKeys.length; i++) {
       decoded = decoded.concat(" ");
     } else
       decoded = decoded.concat(
-        getViginereDecodedItem(k[j - spacers], CODED_STRING[j])
+        getViginereDecodedItem(k[j - spacers], ENCODED_STRING[j])
       );
   }
 
